@@ -1,27 +1,58 @@
 import cerlceLOL from '/CercleLOL.png'
 import cercleLoL2 from '/2cer.png'
+import axios from 'axios'
+import { useState } from 'react'
 import './App.css'
 
+
 function App() {
+
+  const API_KEY = 'RGAPI-8c321515-6f43-41c6-a057-3f277453c4bb'
+  const PSEUDO = 'Miligen'
+  const [pseudo, setPseudo] = useState("")
+
+  function getMyName() {
+    const API_CALL = 'https://euw1.api.riotgames.com/lol/summoner/v4/summoners/by-name/'+ PSEUDO + '?api_key=' + API_KEY;
+
+    axios.get(API_CALL).then(function (response) {
+    console.log(response.data)
+    setPseudo(response.data)
+  }).catch(function (error) {
+    console.log(error);
+  })
+  }
 
 
   return ( 
   <>
-    <section id=''>
+    <section onLoad={getMyName} id=''>
       <div className="presentation">
-        <div className="cercle">
-          <img src={cerlceLOL} width="745px" height="745px" alt="" />
+        <div className="profile">
+            <div className="iconeinvocateur">
+              <h2>{pseudo.name}</h2>
+            </div>
+            <div className="nomInvocateur">
+              <img src={"http://ddragon.leagueoflegends.com/cdn/13.21.1/img/profileicon/" + pseudo.profileIconId + ".png"} alt="" />
+            </div>
+            <div className="lvl">
+              <h2>{pseudo.summonerLevel}</h2>
+            </div>
         </div>
-        <div className="cercle2">
-          <img src={cercleLoL2} width={575} alt="" />
-        </div>
-        {/* TODO: à la maison refaire les cercle de cercle2 et en mettre plusieurs */}
-        <div className="détails">
-          <h1 className="nomDinvocateur">MILIGEN</h1>
-          <h4 className='descInvocateur'>ETERNAL STUDENT</h4>
-        </div>
-      </div>
 
+        <div className="cercles">
+          <div className="cercle">
+            <img src={cerlceLOL} width="600px" height="600px" alt="" id='groscercle'/>
+          </div>
+          <div className="cercle2">
+            <img src={cercleLoL2} width={480} alt="" />
+          </div>
+          <div className="détails">
+            <h1 className="nomDinvocateur">MILIGEN</h1>
+            <h5 className='descInvocateur'>ETERNAL STUDENT</h5>
+          </div>
+        </div>
+        <div className="invisible"></div>
+      </div>
     </section>
  </>
   )

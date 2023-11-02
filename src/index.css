@@ -84,7 +84,6 @@
     --gris4: #1E2328;
     --grisFroid: #1E282D;
     --noir: #010A13;
-
     --blanc: #f9f9f9;
 
 
@@ -134,7 +133,3 @@ h5{
 ul{
     list-style: none;
 }
-section{
-    height: 100vh;
-}
-
