@@ -1,12 +1,15 @@
 import '../css/Stats.css';
 import axios from 'axios';
-import { useState } from 'react';
+import { useState,useEffect } from 'react';
 
 
 
 
 function Stats(){
-    const [champion, setChampion] = useState("")
+    const [champion, setChampion] = useState([])
+    
+    useEffect(() => {getMyChamp();}, []);
+
 
     function getMyChamp(){
         const API_KEY = 'RGAPI-8c321515-6f43-41c6-a057-3f277453c4bb'
@@ -22,32 +25,23 @@ function Stats(){
     }
     return(
     <>
-    <div onLoad={getMyChamp} className="rowStats">
-        <div className="colStats">
-            <div className="cardStats">
-                <div className="imgStats">
-
-                </div>
-                <div className="infosStats">
-                    <div className="nomStats">
-                        <h2>Miligen {champion.id}</h2>
-                    </div>
-                    <div className="lvlStats">
-                        <h2>10</h2>
-                    </div>
-                </div>
+    <div className="rowStats">
+    {/* {champion.map((champ) => (
+        <div className="colStats" key={champ.championId}>
+          <div className="cardStats">
+            <div className="imgStats"></div>
+            <div className="infosStats">
+              <div className="nomStats">
+                <h2>{champ.championId}</h2>
+              </div>
+              <div className="lvlStats">
+                <h2>{champ.level}</h2>
+              </div>
             </div>
-  
-
+          </div>
         </div>
-        <div className="colStats">
-
-        </div>
-        <div className="colStats">
+      ))} */}
             
-
-        </div>
-
     
     </div>
     </>

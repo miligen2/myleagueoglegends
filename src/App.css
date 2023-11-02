@@ -1,3 +1,41 @@
+.profile{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.iconeinvocateur{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+.iconeinvocateur img  {
+    bottom: 10px;
+    position: absolute;
+}
+.iconeinvocateur img:nth-child(1){
+    z-index: 10;
+}
+.iconeinvocateur img:nth-child(2) {
+    bottom: 22px;
+}
+ 
+
+
+#icone{
+    border-radius: 50%;
+    
+}
+
+
+
+
+
+
+
+
 .presentation {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
