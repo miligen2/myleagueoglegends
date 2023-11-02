@@ -1,0 +1,89 @@
+
+.cercle{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    position: relative;
+}
+.cercle2{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    top:-85vh;
+}
+.détails{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    height: 150px;
+    top: -130vh;
+}
+
+.nomDinvocateur{
+    font-size: 5.625rem;
+}
+.descInvocateur{
+    color: var(--or3);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Animation */
+.cercle{
+    animation-name: cercle;
+    animation-duration: 25  s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+@keyframes cercle{
+    from {
+        transform: rotate(0deg);
+    }
+    to{
+        transform: rotate(360deg);
+    }
+}
+

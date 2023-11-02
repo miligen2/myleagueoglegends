@@ -1,0 +1,140 @@
+/* titre */
+
+@font-face {
+    font-family: 'beaufort_for_lolbold';
+    src: url('./font/Beaufortforlol/beaufortforlol-bold-webfont.woff2') format('woff2'),
+         url('./font/Beaufortforlol/beaufortforlol-bold-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+@font-face {
+    font-family: 'beaufort_for_lolmedium';
+    src: url('./font/Beaufortforlol/beaufortforlol-medium-webfont.woff2') format('woff2'),
+         url('./font/Beaufortforlol/beaufortforlol-medium-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'beaufort_for_lollight';
+    src: url('./font/Beaufortforlol/beaufortforlol-light-webfont.woff2') format('woff2'),
+         url('./font/Beaufortforlol/beaufortforlol-light-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+/* texte */
+
+@font-face {
+    font-family: 'spiegelbold';
+    src: url('./font/spiegel/spiegel-bold-webfont.woff2') format('woff2'),
+         url('./font/spiegel/spiegel-bold-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'spiegelregular';
+    src: url('./font/spiegel/spiegel-regular-webfont.woff2') format('woff2'),
+         url('./font/spiegel/spiegel-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+
+:root{
+
+    /* bleu  */
+
+    /* ⁡⁢⁣⁢Dégradé bleu foncé⁡ du bleu 6 au bleu 7 (a utilisé uniquement dans les applications de fond)  */
+    /* ⁡⁢⁣⁢Dégradé bleu⁡ Du bleu 4 Au bleu 2 (À utiliser dans les éléments de design qui contient de la magie) */
+
+    --blue1: #CDFAFA;
+    --blue2: #0AC8B9;
+    --blue3: #0397AB;
+    --blue4: #005A82;
+    --blue5: #0A323C;
+    --blue6: #091428;
+    --blue7: #0A1428;
+
+    /* or */
+
+    /* ⁡⁢⁣⁢Dégradé or Or 5 into Or 4 (uniquement dans le métal Hexstech⁡ */
+
+    --or1: #F0E6D2;
+    --or2: #C8AA6E;
+    --or3: #C8AA6E;
+    --or4: #C89B3C;
+    --or5: #785A28;
+    --or6: #463714;
+    --or7: #32281E;
+
+    /* gris */
+    --gris1: #A09B8C;
+    --gris2: #5B5A56;
+    --gris3: #3C3C41;
+    --gris4: #1E2328;
+    --grisFroid: #1E282D;
+    --noir: #010A13;
+
+    --blanc: #f9f9f9;
+
+
+}
+body, html {
+    margin: 0;
+    padding:0;
+}
+
+body{
+    background-color: var(--noir);
+    color: var(--or1);
+}
+
+h1,h2,h3,h4,h5 {
+
+    font-family: 'beaufort_for_lolbold';
+
+}
+
+h1 {
+   font-size: 40pt; /* gros titres -> (5.625 rem -> mq 3 rem) */
+   line-height:42pt;
+   margin:0;
+}
+h2{
+    font-size: 28pt;
+    line-height:32pt;
+    margin:0;
+}
+h3{
+    font-size: 23pt;
+    line-height:28pt;
+    margin:0;
+}
+h4 {
+    font-size: 18pt;
+    line-height:22pt;
+    margin:0;
+}
+h5{
+    font-size: 14pt;
+    line-height:18pt;
+    margin:0;
+}
+
+ul{
+    list-style: none;
+}
+section{
+    height: 100vh;
+}
+

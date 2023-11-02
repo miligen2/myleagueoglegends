@@ -1,0 +1,86 @@
+nav{
+    display: flex;
+    justify-content: space-between;
+    height: 80px;
+    border-bottom: 1px solid var(--gris3);
+}
+.logo{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 300px;
+    margin: 0 0px 0 10px;
+}
+
+.borderRight{
+    border-right: 1px solid var(--gris3);
+}
+
+
+.logo .pseudo{
+    display: flex;
+    align-items: center;
+    height: 80px;
+    padding: 0 30px 0 0;
+}
+
+.pseudo img {
+    width: auto;
+    height: 50px;
+}
+.pseudo h1{
+    font-family: beaufort_for_lolmedium ;
+    font-size: 1rem;
+    color : var(--gris1);
+}
+
+.logo .pseudoUni{
+    display: flex;
+    align-items: center;
+    padding: 0 30px 0 0 ;
+
+}
+
+.pseudoUni h1 {
+    font-family: beaufort_for_lolmedium ;
+    font-size: 1rem;
+    color : var(--gris2);
+}
+
+.menu ul{
+    display: flex;
+    margin: 0 80px 0 0 ;
+    padding: 0px;
+    height: 80px;
+   
+}
+
+.menu ul li{
+    display: flex;
+    align-items: center;
+    padding: 0 40px 0 40px ;
+}
+
+
+.menu ul li a{
+    text-align: center;
+    text-decoration: none;
+}
+
+
+.menu ul li a h4{
+    text-decoration: none;
+    color: var(--gris1);
+    font-family: beaufort_for_lolmedium;
+    font-size: 0.90rem;
+}
+
+
+/* Hover*/
+.menu ul li a h4:hover{
+    color: var(--or1)
+}
+
+.pseudo h1:hover{
+    color: var(--or1)
+}
