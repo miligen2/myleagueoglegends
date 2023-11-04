@@ -29,7 +29,6 @@ nav{
     height: 50px;
 }
 .pseudo h1{
-    font-family: beaufort_for_lolmedium ;
     font-size: 1rem;
     color : var(--gris1);
 }
@@ -42,7 +41,6 @@ nav{
 }
 
 .pseudoUni h1 {
-    font-family: beaufort_for_lolmedium ;
     font-size: 1rem;
     color : var(--gris2);
 }
@@ -71,7 +69,6 @@ nav{
 .menu ul li a h4{
     text-decoration: none;
     color: var(--gris1);
-    font-family: beaufort_for_lolmedium;
     font-size: 0.90rem;
 }
 

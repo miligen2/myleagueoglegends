@@ -24,8 +24,12 @@ function Stats(){
 
     }
     return(
-    <>
+        
+
+        
+
     <div className="rowStats">
+
     {/* {champion.map((champ) => (
         <div className="colStats" key={champ.championId}>
           <div className="cardStats">
@@ -42,9 +46,7 @@ function Stats(){
         </div>
       ))} */}
             
-    
     </div>
-    </>
     )
 }
 export default Stats;

@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client'
 import App from './App.tsx'
 import Header from './compenent/header/Header.tsx'
 import Stats from './view/Stats.tsx'
-import "./index.css"
+import "./index.css"  
 
 
 

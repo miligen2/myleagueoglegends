@@ -91,17 +91,21 @@
 body, html {
     margin: 0;
     padding:0;
+    cursor: url("/src/assets/cursor/cursor.png"),auto;
+}
+
+a:hover{
+    cursor: url("/src/assets/cursor/cursor-pointer.png"),auto;
 }
 
 body{
     background-color: var(--noir);
     color: var(--or1);
+    font-family: ;
 }
 
-h1,h2,h3,h4,h5 {
-
+h1,h2,h3,h4,h5,h6 {
     font-family: 'beaufort_for_lolbold';
-
 }
 
 h1 {
@@ -129,7 +133,13 @@ h5{
     line-height:18pt;
     margin:0;
 }
+h6{
+    font-size: 12pt;
+    line-height:16pt;
+    margin:0;
+}
 
 ul{
     list-style: none;
 }
+

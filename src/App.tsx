@@ -1,6 +1,11 @@
 import cerlceLOL from '/CercleLOL.png'
 import cercleLoL2 from '/2cer.png'
+import arriereIcone from "/arriereIcone.png";
+import cadran from '/Ranked-Emblems-Latest/Tier-Wings/Platinum.png'
 import axios from 'axios'
+
+
+
 import { useState,useEffect } from 'react'
 import './App.css'
 
@@ -11,9 +16,14 @@ function App() {
   const PSEUDO = 'Miligen'
   
   const [pseudo, setPseudo] = useState("")
+  const [eloIcone, setEloIcone] = useState([])
+
 
   useEffect(() => {
     getMyName();
+  }, []);
+  useEffect(() => {
+    getMyElo();
   }, []);
 
   function getMyName() {
@@ -27,25 +37,38 @@ function App() {
   })
   }
 
+  function getMyElo(){
+    const SUMMONERID ="8CrnHcAyVYDZKpnJXWWWiDcCZgBtBZfkpelz4TWU51iTpjg"
+    const API_CALL = 'https://euw1.api.riotgames.com/lol/league/v4/entries/by-summoner/'+ SUMMONERID +'?api_key=' + API_KEY;
 
+    axios.get(API_CALL).then(function (response) {
+      console.log(response.data)
+      setEloIcone(response.data)
+    }).catch(function (error) {
+    console.log(error);})
+  
+}
   return ( 
-  <>
+    
     <section id=''>
       <div className="presentation">
         <div className="profile">
-            <div className="iconeinvocateur">
-              <img src="/icone.png" width={150}  alt="" />
-              <img src={"http://ddragon.leagueoflegends.com/cdn/13.21.1/img/profileicon/" + pseudo.profileIconId + ".png"} width={125} id='icone' alt="" />
-            </div>
-            <div className="nomInvocateur">
-              <h2>{pseudo.name}</h2>
-            </div>
-            <div className="lvl">
-              <h2>{pseudo.summonerLevel}</h2>
+          <img src={arriereIcone} id='test' width={320} alt=""  />
+          <img src="/icone.png" width={150} id="iconeProfile" alt="" />
+          <img src={"http://ddragon.leagueoflegends.com/cdn/13.21.1/img/profileicon/" + pseudo.profileIconId + ".png"} width={125} id='icone' alt="" />
+            <div className="infoProfile">
+              <div className="nomInvocateur">
+                <h3>{pseudo.name}</h3>
+              </div>
+              <div className="lvl">
+                <h6>{pseudo.summonerLevel}</h6>
+              </div>
             </div>
         </div>
+        
 
         <div className="cercles">
+      
           <div className="cercle">
             <img src={cerlceLOL} width="600px" height="600px" alt="" id='groscercle'/>
           </div>
@@ -57,10 +80,28 @@ function App() {
             <h5 className='descInvocateur'>ETERNAL STUDENT</h5>
           </div>
         </div>
-        <div className="invisible"></div>
-      </div>
+          <div className="rank">
+              <img src={arriereIcone} width={320}alt="" />
+              <select name="" id="selectRank">
+                <option value="0">Solo / Duo</option>
+                <option value="1">Flex</option>
+              </select>
+            <div className="nomRank">
+                <h4>SOLO/DUO</h4>
+              </div>
+              <div className="iconeRank">
+                <img src="/Ranked-Emblems-Latest/Rank=Silver.png" alt="" width={200} />
+              </div>
+              <div className="ranked">
+                <h4>SILVER II</h4>
+              </div>
+              <div className="LPRank">
+                <h5>20 - LP</h5>
+              </div>
+          </div>
+      </div> 
     </section>
- </>
+
   )
 }
 
