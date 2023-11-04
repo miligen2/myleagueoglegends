@@ -12,7 +12,7 @@ import './App.css'
 
 function App() {
 
-  const API_KEY = 'RGAPI-8c321515-6f43-41c6-a057-3f277453c4bb'
+  const API_KEY = 'RGAPI-3d1612da-878f-43e6-9281-d7352f8fb758'
   const PSEUDO = 'Miligen'
   
   const [pseudo, setPseudo] = useState("")
@@ -83,12 +83,10 @@ function App() {
           <div className="rank">
               <img src={arriereIcone} width={320}alt="" />
               <select name="" id="selectRank">
-                <option value="0">Solo / Duo</option>
-                <option value="1">Flex</option>
+                <option value="0"><h1>Solo / Duo</h1></option>
+                <option value="1"><h1>Flex</h1></option>
               </select>
-            <div className="nomRank">
-                <h4>SOLO/DUO</h4>
-              </div>
+   
               <div className="iconeRank">
                 <img src="/Ranked-Emblems-Latest/Rank=Silver.png" alt="" width={200} />
               </div>

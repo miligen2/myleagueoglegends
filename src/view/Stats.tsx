@@ -24,29 +24,70 @@ function Stats(){
 
     }
     return(
-        
 
-        
+      <>
+      <div className="container">
+        <div className="leftCells">
 
-    <div className="rowStats">
+          <div className="Cell">
+            <div className="titleCell">
+              <h6>Ranked Solo</h6>
+            </div>
+            <div className="infoCell">
 
-    {/* {champion.map((champ) => (
-        <div className="colStats" key={champ.championId}>
-          <div className="cardStats">
-            <div className="imgStats"></div>
-            <div className="infosStats">
-              <div className="nomStats">
-                <h2>{champ.championId}</h2>
+              <div className="iconeCell">
+                <img src="/Ranked-Emblems-Latest/Rank=Emerald.png" width={150} alt="" />
               </div>
-              <div className="lvlStats">
-                <h2>{champ.level}</h2>
+
+              <div className="rankCell">
+                <h4>Emerald</h4>
+                <h5>20LP</h5>
+              </div>
+
+              <div className="winrate">
+                <h5>22V 21V</h5>
+                <h6>100%</h6>
               </div>
             </div>
+
           </div>
+
+          <div className="Cell">
+
+            <div className="titleCell">
+              <h6>Ranked Flex</h6>
+            </div>
+
+            <div className="infoCell">
+
+              <div className="iconeCell">
+                <img src="/Ranked-Emblems-Latest/Rank=Diamond.png" width={150} alt="" />
+              </div>
+
+              <div className="rankCell">
+                <h4>Diamond</h4>
+                <h5>20LP</h5>
+              </div>
+
+              <div className="winrate">
+                <h5>22V 21V</h5>
+                <h6>100%</h6>
+              </div>
+
+            </div>
+
+          </div>
+          
         </div>
-      ))} */}
-            
-    </div>
+      </div>
+      
+      
+      </>
+        
+
+        
+
+   
     )
 }
 export default Stats;

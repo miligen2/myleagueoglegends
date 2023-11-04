@@ -90,34 +90,29 @@ z-index: -1324324;
 }
 
 #selectRank{
+    width: 160px;
+    height: 35px;
+    padding: 5px 35px 5px 5px;
+    font-size: 18px;
+    font-family: beaufort_for_lolbold ;
+    border-radius: 20px;
+    color: var(--or3);
     background: none;
-
 }
-.nomRank{ margin: 10px 0 0 0;
-}
-.nomRank h4{
-    display: flex;
 
+#selectRank option{
+    background-color: var(--black);
+    color:var(--noir);
 }
 
 
+#selectRank:focus{
+    outline: none;
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+#selectRank:hover {
+    cursor: url(/src/assets/cursor/cursor-pointer.png);
+}
 
 
 

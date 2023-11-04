@@ -1,5 +1,44 @@
-.rowStats{
+.container {
+    padding: 0 100px ;
+}
+.leftCells {
+    display: flex;
+    flex-direction: column;
+    margin: ;
+}
+.Cell{
+    display: flex;
+    flex-direction: column;
+   
+    background: rgba(255, 255, 255, 0.19);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5.8px);
+    -webkit-backdrop-filter: blur(5.8px);
+    /* https://css.glass/ */
+
+    width: 25%;
+    border-radius: 10px;
+    padding: 5px;
+    margin: 5px;
+}
+.infoCell {
     display: flex;
     justify-content: space-around;
-    align-items: center;
+}
+.rankCell{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: end;
+}
+.winrate{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: end;
+}
+.winrate h6 {
+    font-family: 'spiegelregular';
+    font-size: 13px;
 }
