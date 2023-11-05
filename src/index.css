@@ -101,7 +101,7 @@ a:hover{
 body{
     background-color: var(--noir);
     color: var(--or1);
-    font-family: ;
+    font-family: 'spiegelregular';
 }
 
 h1,h2,h3,h4,h5,h6 {
@@ -141,5 +141,9 @@ h6{
 
 ul{
     list-style: none;
+}
+
+p{
+    margin: 0;
 }
 
