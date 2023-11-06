@@ -71,6 +71,10 @@ nav{
     color: var(--gris1);
     font-size: 0.90rem;
 }
+.menu ul li a h2{
+    text-decoration: none;
+    color: var(--gris1);
+}
 
 
 /* Hover*/

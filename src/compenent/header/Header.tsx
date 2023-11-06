@@ -16,6 +16,9 @@ function Header() {
                 </div>
                 <div className="menu">
                     <ul>
+                        <li className="borderRight">
+                            <a href=""><h2>HOVER ME !</h2></a>
+                        </li>
                          <li className="borderRight">
                             <a href="#"><h4>HOME</h4></a>
                         </li>
