@@ -12,7 +12,7 @@ import './App.css'
 
 function App() {
 
-  const API_KEY = 'RGAPI-3d1612da-878f-43e6-9281-d7352f8fb758'
+  const API_KEY = 'RGAPI-24b59414-194f-41e3-9cf0-1e08b22894ec'
   const PSEUDO = 'Miligen'
   
   const [pseudo, setPseudo] = useState("")

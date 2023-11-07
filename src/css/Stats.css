@@ -103,26 +103,53 @@
 
 .rightCells {
     display: flex;
+    align-items: flex-start;
     flex-direction: column;
+    overflow: auto;
     width: 70%;
     background: blue;
     padding: 5px;
     margin: 5px;
 
 }
-.cell2{
+.cards {
     display: flex;
-    background: red;
+}
 
-}
-.type{
-    display: flex;
-    flex-direction: column;
-}
-.imgChamp{
-    display: flex;
 
+.cardPerso   {
+    margin: 30px;
 }
+.nomPerso{
+    text-align: center;
+    margin: 7px;
+}
+.imgPerso {
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+
+#masteries {
+    position: absolute;
+    z-index: 0;
+    bottom: -3%;
+}
+.nomPerso{
+    margin-top: 12%;
+}
+.masteriesPoint{
+    display: flex;
+justify-content: center ;
+align-items: center;
+}
+#iconemasterie{
+    width: 30px;
+}
+.points > p{
+    font-size: 11px;
+}
+
 
 
 

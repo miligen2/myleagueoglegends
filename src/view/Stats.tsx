@@ -6,23 +6,87 @@ import { useState,useEffect } from 'react';
 
 
 function Stats(){
-    const [champion, setChampion] = useState([])
-    
+
+  const API_KEY = 'RGAPI-24b59414-194f-41e3-9cf0-1e08b22894ec'
+
+    const [champion, setChampion] = useState([]);
+    const [champData,setChampData] = useState([]);
+    const [rank, setRank] = useState([]);
+  
+    useEffect(() => {getMyElo();}, []);
     useEffect(() => {getMyChamp();}, []);
 
+    useEffect(() => {getChampData();},[]);
+    
+    
+    function getMyElo(){
+      const SUMMONERID ="8CrnHcAyVYDZKpnJXWWWiDcCZgBtBZfkpelz4TWU51iTpjg"
+      const API_CALL = 'https://euw1.api.riotgames.com/lol/league/v4/entries/by-summoner/'+ SUMMONERID +'?api_key=' + API_KEY;
+  
+      axios.get(API_CALL).then(function (response) {
+        console.log(response.data)
+        setRank(response.data)
+      }).catch(function (error) {
+      console.log(error);})
+    
+  }
+  let imgscr
+  switch (rank.tier) {
+    case "IRON":
+      imgscr = <img src="/Ranked-Emblems-Latest/Rank=Iron.png" alt="" width={200} />
+      break;
+    case "BRONZE":
+      imgscr =  <img src="/Ranked-Emblems-Latest/Rank=Bronze.png" alt="" width={200} />
+      break;
+    case "SILVER":
+      imgscr =  <img src="/Ranked-Emblems-Latest/Rank=Silver.png" alt="" width={200} />
+      break;
+    case "GOLD":
+      imgscr =  <img src="/Ranked-Emblems-Latest/Rank=Gold.png" alt="" width={200} />
+      break;
+    case "PLATINUM":
+      imgscr =  <img src="/Ranked-Emblems-Latest/Rank=Platinum.png" alt="" width={200} />
+      break;
+    case "DIAMOND":
+      imgscr =  <img src="/Ranked-Emblems-Latest/Rank=Diamond.png" alt="" width={200} />
+      break;
+    case "MASTER":
+      imgscr =  <img src="/Ranked-Emblems-Latest/Rank=Master.png" alt="" width={200} />
+      break;
+    case "GRANDMASTER":
+      imgscr =  <img src="/Ranked-Emblems-Latest/Rank=Grandmaster.png" alt="" width={200} />
+      break;
+    case "CHALLENGER":
+      imgscr =  <img src="/Ranked-Emblems-Latest/Rank=Challenger.png" alt="" width={200} />
+      break;
+    default:
+      imgscr =  <img src="/load01.gif" alt="" width={200} />
+      break;
+  }
+  
 
     function getMyChamp(){
-        const API_KEY = 'RGAPI-8c321515-6f43-41c6-a057-3f277453c4bb'
+ 
         const PUID ="lFQmKgqzZpKYM_Fy3tptjWJ8F1AVteyco_LQ20k3bluhYhMRZ9jHfIrHyYyLXXYh_RpQV8jGgAyTbw"
         const API_CALL = 'https://euw1.api.riotgames.com/lol/champion-mastery/v4/champion-masteries/by-puuid/'+ PUID + '?api_key=' + API_KEY;
         axios.get(API_CALL).then(function (response) {
-            console.log(response.data)
+            console.log(response)
             setChampion(response.data)
         }).catch(function (error) {
             console.log(error);
         })
-
     }
+
+    function getChampData(){
+      axios.get('http://ddragon.leagueoflegends.com/cdn/13.21.1/data/en_US/champion.json').then(function (response) {
+        console.log(response)
+        setChampData(response.data)
+ 
+      }).catch(function (error) {
+        console.log(error);
+      })
+    }
+
     return(
 
     
@@ -112,32 +176,30 @@ function Stats(){
         </div>
 
         <div className="rightCells">
-          <div className="cell2">
-            <div className="type">
-              <div className="flex"><h5>Flex 5C5 Rank</h5></div>
-              <div className="quand"><p>il y a un jour</p></div>
-              <hr width={50}></hr>
-              <div className="gameEtat"><p>Defaite</p></div>
-              <div className="timePlayed"><p>29:50</p></div>
-            </div>
-            <div className="iconeChamp&summ">
-              <div className="imgChamp">
-                <img src="/LoL_Icon_Rendered_Hi-Res.png" width={80} />
+          <div className="cards">
+            {champion.map((item, index) => (
+            <div className="cardPerso" key={index}>
+            
+              <div className="imgPerso">
+                <img src={"http://ddragon.leagueoflegends.com/cdn/img/champion/loading/Aatrox_1.jpg"} id='perso' width="200px" alt="" />
+                <img src="/mastery-7.png" id='masteries'width="30%" alt="" />
               </div>
-              <div className="item">
-                
+              <div className="nomPerso">
+                <h6>Master YI {item.championId} </h6>
+                <hr style={{ width: '25%' }} />
+              </div>
+              <div className="masteriesPoint">
+                <div className="icone">
+                  <img src="/silver.png" id="iconemasterie" alt="" />
+                </div>
+                <div className="points"><p>{item.championPoints} points</p></div>
                 
               </div>
 
-            </div>
-            <div className="summoners">
-
-            </div>
-
-
-
+            </div>))}
 
           </div>
+
 
         </div>
 
