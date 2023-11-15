@@ -7,7 +7,7 @@ import { useState,useEffect } from 'react';
 
 function Stats(){
 
-  const API_KEY = 'RGAPI-24b59414-194f-41e3-9cf0-1e08b22894ec'
+  const API_KEY = 'RGAPI-cf84eb0a-b0f3-41bc-904b-29faaeb45d84'
 
     const [champion, setChampion] = useState([]);
     const [champData,setChampData] = useState([]);
@@ -30,6 +30,7 @@ function Stats(){
       console.log(error);})
     
   }
+  
   let imgscr
   switch (rank.tier) {
     case "IRON":
