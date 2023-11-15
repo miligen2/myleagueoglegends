@@ -7,7 +7,7 @@ import { useState,useEffect } from 'react';
 
 function Stats(){
 
-  const API_KEY = 'RGAPI-cf84eb0a-b0f3-41bc-904b-29faaeb45d84'
+  const API_KEY = 'RGAPI-49aabf09-15c4-4d9e-8a41-ea0bd9dc9b26'
 
     const [champion, setChampion] = useState([]);
     const [champData,setChampData] = useState([]);

@@ -1,6 +1,7 @@
 import cerlceLOL from '/CercleLOL.png'
 import cercleLoL2 from '/2cer.png'
 import arriereIcone from "/arriereIcone.png";
+import Header from "./compenent/header/Header";
 import cadran from '/Ranked-Emblems-Latest/Rank=Bronze.png'
 import axios from 'axios'
 
@@ -19,19 +20,23 @@ interface Summoner {
   summonerLevel: number;
 }
 
+interface RankData {
+  tier: string;
+  rank: string;
+  leaguePoints: number;
+}
+
 
 
 function App() {
 
 
 
-  const API_KEY = 'RGAPI-cf84eb0a-b0f3-41bc-904b-29faaeb45d84'
-  const PSEUDO = 'Miligen'
-
   const [selectedValue, setSelectedValue] = useState("0");
-  const [eloIcone, setEloIcone] = useState([])
+  const [eloIcone, setEloIcone] = useState<RankData[]>([]);
+  const [inputValue, setInputValue] = useState('');
 
- 
+
   const [pseudo, setPseudo] = useState<Summoner>({
     accountId: '',
     profileIconId: 0,
@@ -42,19 +47,24 @@ function App() {
     summonerLevel: 0,
   });
 
+  function onChangeEvent(event) {
+    const value = event.target.value;
+    setInputValue(value);
+  }
+  function onClickHandler() {
+
+    getMyName(inputValue);
+
+  }
   function handleEvent(event) {
     const value = event.target.value;
     console.log("handleEvent ", value);
     setSelectedValue(value);
   }
 
+  function getMyName(searchTerm: string) {
 
- 
-  
-  
-
-  function getMyName() {
-    const API_CALL = 'https://euw1.api.riotgames.com/lol/summoner/v4/summoners/by-name/'+ PSEUDO + '?api_key=' + API_KEY;
+    const API_CALL = '/api/lol/summoner/v4/summoners/by-name/' + searchTerm ;
 
     axios.get(API_CALL).then(function (response) {
     console.log(response.data)
@@ -67,8 +77,7 @@ function App() {
   
 
   function getMyElo(){
-    const SUMMONERID ="8CrnHcAyVYDZKpnJXWWWiDcCZgBtBZfkpelz4TWU51iTpjg"
-    const API_CALL = 'https://euw1.api.riotgames.com/lol/league/v4/entries/by-summoner/'+ SUMMONERID +'?api_key=' + API_KEY;
+    const API_CALL = '/api/lol/league/v4/entries/by-summoner/'+ pseudo.id;
 
     axios.get(API_CALL).then(function (response) {
       console.log(response.data)
@@ -78,16 +87,40 @@ function App() {
 
 }
 
+
+
 useEffect(() => {
-  getMyName();
-}, []);
-useEffect(() => {
-  getMyElo();
-});
+  if (pseudo.id) {
+    getMyElo();
+  }
+}, [pseudo.id]);
+ 
+
+function RankDisplay({tier, rank, leaguePoints}:RankData) {
+  return (
+    <>
+              <div className="iconeRank">
+                <img src={`/Ranked-Emblems-Latest/Rank=${tier}.png`} alt="" width={200} />
+              </div>
+              <div className="ranked">
+                <h4>{tier.toUpperCase()} {rank} </h4>
+              </div>
+              <div className="LPRank">
+                <h5>{leaguePoints} - LP</h5>
+             </div>
+    </>
+  );
+
+
+}
 
   return ( 
-    
+    <> <Header inputValue={pseudo.name} />
     <section id=''>
+      <div className="recherche">
+        <input type="search" name="" onChange={onChangeEvent} id="" placeholder='Summoner names' />
+        <button onClick={onClickHandler}>Send</button>
+      </div>
       <div className="presentation">
         <div className="profile">
           <img src={arriereIcone} id='test' width={320} alt=""  />
@@ -124,48 +157,14 @@ useEffect(() => {
                 <option value="1"><h1>Flex</h1></option>
               </select>
 
-              {selectedValue === "0" ? 
-              ( 
-              <>
-              <div className="iconeRank">
-                <img src="/Ranked-Emblems-Latest/Rank=Silver.png" alt="" width={200} />
-              </div>
-              <div className="ranked">
-                <h4>SILVER I3I</h4>
-              </div>
-              <div className="LPRank">
-                <h5>20 - LP</h5>
-             </div>
-            </>)
-            
-               : ( 
-                <>
-               <div className="iconeRank">
-                <img src="/Ranked-Emblems-Latest/Rank=Silver.png" alt="" width={200} />
-               </div>
-                <div className="ranked">
-                  <h4>SILVER II</h4>
-                </div>
-                <div className="LPRank">
-                  <h5>20 - LP</h5>
-                </div>
-               </>)
-               }
-
-              
-              <div className="iconeRank">
-                <img src="/Ranked-Emblems-Latest/Rank=Silver.png" alt="" width={200} />
-              </div>
-              <div className="ranked">
-                <h4>SILVER II</h4>
-              </div>
-              <div className="LPRank">
-                <h5>20 - LP</h5>
-              </div>
+              {selectedValue === "0" && eloIcone.length > 0 ? (
+                <RankDisplay tier={eloIcone[0].tier} rank={eloIcone[0].rank} leaguePoints={eloIcone[0].leaguePoints}/>) 
+                : selectedValue === "1" && eloIcone.length > 1 ? (
+                <RankDisplay tier={eloIcone[1].tier} rank={eloIcone[1].rank} leaguePoints={eloIcone[1].leaguePoints}/>) : null}
           </div>
       </div> 
     </section>
-
+    </>
   )
 }
 

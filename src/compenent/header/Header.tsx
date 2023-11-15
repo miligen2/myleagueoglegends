@@ -1,24 +1,21 @@
 import "./header.css"
 import logoLol  from '/LoL_Icon_Rendered_Hi-Res.png'
 
-function Header() {
+function Header({ inputValue }) {
     return (
         <header>
             <nav>
                  <div className="logo">
                     <div className="pseudo borderRight">
                         <img src={logoLol} alt="lol" />
-                        <h1>MILIGEN</h1>
+                        <h1>{inputValue}</h1>
                     </div>
-                    <div className="pseudoUni ">
-                        <h1>Miligen #EUW</h1>
+                    <div className="pseudoUni">
+                        <h1>{inputValue} #EUW</h1>
                     </div>      
                 </div>
                 <div className="menu">
                     <ul>
-                        <li className="borderRight">
-                            <a href=""><h2>HOVER ME !</h2></a>
-                        </li>
                          <li className="borderRight">
                             <a href="#"><h4>HOME</h4></a>
                         </li>
