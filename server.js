@@ -12,7 +12,7 @@ app.use('/api', (req, res) => {
   const riotApiUrl = 'https://euw1.api.riotgames.com';
   const apiUrlWithoutPrefix = req.url.replace(/^\/api/, ''); // Supprimer le préfixe "/api"
   const requestUrl = `${riotApiUrl}${apiUrlWithoutPrefix}`;
-  const apiKey = 'RGAPI-49aabf09-15c4-4d9e-8a41-ea0bd9dc9b26';
+  const apiKey = 'RGAPI-20cedf1a-73e3-4584-a2e8-59a0a57bc2fd';
 
   const headers = {
     'X-Riot-Token': apiKey,

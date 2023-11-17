@@ -2,16 +2,50 @@ import '../css/Stats.css';
 import axios from 'axios';
 import { useState,useEffect } from 'react';
 
+interface MiniSeriesDTO{
+  losses: number;
+  progress: string;
+  target: number;
+  wind: number;
+}
 
-
+interface Stat{
+  summonerId: string;
+  summonerName:string;
+  queueType: string;
+  tier: string;
+  rank: string;
+  leaguePoints: number;
+  wins: number;
+  losses: number;
+  hotStreak: Boolean;
+  veteran: Boolean;
+  freshBlood: Boolean;
+  inactive: Boolean;
+  miniSeries: MiniSeriesDTO;
+}
 
 function Stats(){
 
-  const API_KEY = 'RGAPI-49aabf09-15c4-4d9e-8a41-ea0bd9dc9b26'
 
     const [champion, setChampion] = useState([]);
     const [champData,setChampData] = useState([]);
     const [rank, setRank] = useState([]);
+/*const [rank, setRank] = useState<Stat>({
+  summonerId: '',
+  summonerName: '',
+  queueType: '',
+  tier: '',
+  rank: '',
+  leaguePoints: 0,
+  wins: 0,
+  losses: 0,
+  hotStreak: false,
+  veteran: false,
+  freshBlood: false,
+  inactive: false,
+  miniSeries: { losses: 0, progress: '', target: 0, wind: 0 }
+});*/
   
     useEffect(() => {getMyElo();}, []);
     useEffect(() => {getMyChamp();}, []);
@@ -21,7 +55,7 @@ function Stats(){
     
     function getMyElo(){
       const SUMMONERID ="8CrnHcAyVYDZKpnJXWWWiDcCZgBtBZfkpelz4TWU51iTpjg"
-      const API_CALL = 'https://euw1.api.riotgames.com/lol/league/v4/entries/by-summoner/'+ SUMMONERID +'?api_key=' + API_KEY;
+      const API_CALL = '/api/lol/league/v4/entries/by-summoner/'+ SUMMONERID ;
   
       axios.get(API_CALL).then(function (response) {
         console.log(response.data)
@@ -69,7 +103,7 @@ function Stats(){
     function getMyChamp(){
  
         const PUID ="lFQmKgqzZpKYM_Fy3tptjWJ8F1AVteyco_LQ20k3bluhYhMRZ9jHfIrHyYyLXXYh_RpQV8jGgAyTbw"
-        const API_CALL = 'https://euw1.api.riotgames.com/lol/champion-mastery/v4/champion-masteries/by-puuid/'+ PUID + '?api_key=' + API_KEY;
+        const API_CALL = '/api/lol/champion-mastery/v4/champion-masteries/by-puuid/'+ PUID ;
         axios.get(API_CALL).then(function (response) {
             console.log(response)
             setChampion(response.data)
@@ -92,89 +126,6 @@ function Stats(){
 
     
       <div className="container">
-        <div className="leftCells">
-
-          <div className="Cell bgCell">
-            <div className="titleCell">
-              <h6>Ranked Solo</h6>
-            </div>
-            <div className="infoCell">
-
-              <div className="iconeCell">
-                <img src="/Ranked-Emblems-Latest/Rank=Emerald.png" width={80} alt="" />
-              </div>
-
-              <div className="rankCell">
-                <h4>Emerald</h4>
-                <h6>20LP</h6>
-              </div>
-
-              <div className="winrate">
-                <h5>22V 21V</h5>
-                <h6>100%</h6>
-              </div>
-            </div>
-
-          </div>
-
-          <div className="Cell bgCell">
-
-            <div className="titleCell">
-              <h6>Ranked Flex</h6>
-            </div>
-
-            <div className="infoCell">
-
-              <div className="iconeCell">
-                <img src="/Ranked-Emblems-Latest/Rank=Diamond.png" width={80} alt="" />
-              </div>
-
-              <div className="rankCell">
-                <h4>Diamond</h4>
-                <h6>20LP</h6>
-              </div>
-
-              <div className="winrate">
-                <h5>22V 21V</h5>
-                <h6>100%</h6>
-              </div>
-
-            </div>
-
-          </div>
-
-          <div className="Cell bgCell">
-            <div className="titleCell">
-              <h5>Carriere</h5>
-            </div>
-            <div className="infosCellCarriere">
-              <div className="firstLigne">
-                <div className="timeGame">
-                  <h2>1D 16H 22M</h2>
-                  <h5>Temps de jeu</h5>
-
-                </div>
-                <div className="gamePlayed">
-                  <h2>279</h2>
-                  <h5>partie jouées</h5>
-                </div>
-              </div>
-              <div className="secondLigne">
-                <div className="donut">
-                  <div className="donutHole">
-                    <h2>50%</h2>
-                  </div>
-
-                </div>
-
-              </div>
-            </div>
-
-
-          </div>
-
-          
-        </div>
 
         <div className="rightCells">
           <div className="cards">
